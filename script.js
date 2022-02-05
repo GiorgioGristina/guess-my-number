@@ -13,10 +13,12 @@ const highScore = document.querySelector('.highscore')
 const check = document.querySelector('.check')
 // select body
 const body = document.querySelector('body')
+// select button again
+const again = document.querySelector('.again')
 
 //  secret number to guess
-const numberToGuess = Math.trunc(Math.random() * 20) +1;
- ; 
+let numberToGuess = Math.trunc(Math.random() * 20) +1;
+  
 
 // initial score
 let score = 20;
@@ -55,3 +57,18 @@ check.addEventListener('click', () => {
     }      
   }
 })
+
+
+// event listener to reset when again button is clicked
+again.addEventListener("click", () => {
+  score = 20
+  numberToGuess = Math.trunc(Math.random() * 20) +1;
+  message.textContent = "Start guessing..."
+  body.style.backgroundColor = '#222';
+    secretNumber.style.width = '15rem'
+    secretNumber.textContent = '?'
+    input.value = ""
+    scorePoint.textContent = score
+})
+
+
