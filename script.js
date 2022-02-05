@@ -11,10 +11,12 @@ const scorePoint = document.querySelector('.score')
 const highScore = document.querySelector('.highscore')
 // selct button
 const check = document.querySelector('.check')
+// select body
+const body = document.querySelector('body')
 
 //  secret number to guess
 const numberToGuess = Math.trunc(Math.random() * 20) +1;
-secretNumber.textContent = numberToGuess ; 
+ ; 
 
 // initial score
 let score = 20;
@@ -28,7 +30,11 @@ check.addEventListener('click', () => {
   if (!guess) {
     message.textContent = "No a number!";
   } else if (guess === numberToGuess ) {
-    message.textContent = "You are right";    
+    message.textContent = "Correct number!!!!";
+    // add style when the user guess
+    body.style.backgroundColor = '#60b347';
+    secretNumber.style.width = '30rem'
+    secretNumber.textContent = numberToGuess
   } else if (guess > numberToGuess) {
     if (score > 1) {
       message.textContent = "Too High";
